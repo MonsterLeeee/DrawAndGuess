@@ -23,7 +23,6 @@ public class SocketHandler extends Thread{
     public void run() {
         Socket socket=new Socket();
         try {
-            //socket.bind(null);
             //创建一个client socket,设置需连接的服务端的IP地址，端口号和超时时间
             socket.connect(new InetSocketAddress(serviceAddress, port), 500);
             OutputStream outputStream=socket.getOutputStream();//获取输出流

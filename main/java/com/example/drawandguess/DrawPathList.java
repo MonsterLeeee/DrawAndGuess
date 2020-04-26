@@ -19,15 +19,9 @@ public class DrawPathList {
         return paint;
     }
 
-    public void setPaint(Paint paint) {
-        this.paint = paint;
-    }
 
     public Path getPath() {
         return path;
     }
 
-    public void setPath(Path path) {
-        this.path = path;
-    }
 }

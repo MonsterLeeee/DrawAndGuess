@@ -71,18 +71,18 @@ public class ClientBoard extends AppCompatActivity implements View.OnClickListen
 
     private DrawingBoard mDrawingBoard;
     private Slider mSlider;
-    //代表颜色选项
+    //颜色选项
     private ImageView Black;
     private ImageView Accent;
     private ImageView Primary;
     private ImageView Red;
-    //对画板的操作
+    //画板的操作
     private ImageView mPaint;
     private ImageView mEraser;
     private ImageView mClean;
     private ImageView mLast;
     private ImageView mNext;
-    //记录画笔大小
+    //画笔大小
     private float size;
 
     //获取像素点
@@ -157,7 +157,7 @@ public class ClientBoard extends AppCompatActivity implements View.OnClickListen
         mLast = findViewById(R.id.iv_last);
         mNext = findViewById(R.id.iv_next);
     }
-    //实现滑动小圆点改变画笔线条粗细大小
+    //滑动小圆点改变画笔线条粗细
     private void addSliderListener(){
         mSlider.addListener(new Slider.OnSliderChangedListener() {
             @Override
@@ -175,7 +175,7 @@ public class ClientBoard extends AppCompatActivity implements View.OnClickListen
         Accent.setOnClickListener(this);
         Primary.setOnClickListener(this);
         Red.setOnClickListener(this);
-        //设置默认画笔背景为蓝色
+        //默认画笔背景为蓝色
         mPaint.getBackground().setLevel(1);
         mPaint.getDrawable().setLevel(1);
         mPaint.setOnClickListener(this);
@@ -281,17 +281,12 @@ public class ClientBoard extends AppCompatActivity implements View.OnClickListen
                     psize = Integer.parseInt(strArray[1]);
 
 
-                    //设置画笔抗锯齿和抖动
+                    //设置画笔
                     wpaint = new Paint(Paint.ANTI_ALIAS_FLAG|Paint.DITHER_FLAG);
-                    //设置画笔填充方式为只描边
                     wpaint.setStyle(Paint.Style.STROKE);
-                    //设置画笔颜色
                     wpaint.setColor(pcolor);
-                    //设置画笔宽度
                     wpaint.setStrokeWidth(psize);
-                    //设置圆形线帽
                     wpaint.setStrokeJoin(Paint.Join.ROUND);
-                    //设置线段连接处为圆角
                     wpaint.setStrokeCap(Paint.Cap.ROUND);
                     if(pcolor == Color.WHITE){wpaint.setXfermode(mDrawingBoard.mEraserMode);}
                     else{wpaint.setXfermode(null);}
